@@ -8,8 +8,12 @@
 
 Array.prototype.searchBinary = function (key, searchType) {
     var enumerable = this,
+
         min = 0,
-        max = enumerable.length - 1;
+        max = enumerable.length - 1,
+
+        defaultSearchType = Array.prototype.searchBinary.types.recursive;
+
     /**
      * This is enough anyway
      * @param {Number} min
@@ -19,8 +23,6 @@ Array.prototype.searchBinary = function (key, searchType) {
     function getMiddle(min, max) {
         return Math.floor((min + max) / 2);
     }
-
-    var defaultSearchType = Array.prototype.searchBinary.types.recursive;
 
     /**
      * Recursive version of binary search
